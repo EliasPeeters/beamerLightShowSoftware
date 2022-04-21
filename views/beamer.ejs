@@ -1,0 +1,55 @@
+<html>
+
+    <head>
+        <%- include ("partials/header") %>
+        <title>Controller</title>
+    </head>
+
+    <style>
+
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        #videoframe {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+
+    <body>
+
+        <video id="videoframe"autoplay loop muted>
+            <source id="videoSource" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+
+        <script>
+
+            let videoFrame = document.getElementById('videoframe')
+            videoFrame.play();
+
+            let videoSource = document.getElementById('videoSource')
+
+            
+            var socket = io();
+
+    
+            socket.on('signal', function(msg) {
+                document.getElementById('videoSource').setAttribute('src', `/assets/videos/${msg.id}.mp4`)
+
+                videoFrame.load();
+                videoFrame.play();
+            });
+
+            socket.emit('joined');
+          </script>
+
+
+    </body>
+
+    
+
+</html>

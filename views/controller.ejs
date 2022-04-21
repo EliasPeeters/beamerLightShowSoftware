@@ -1,0 +1,84 @@
+<html>
+
+    <head>
+        <%- include ("partials/header") %>
+        <title>Controller</title>
+        <link href="/assets/css/controller.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="videoframeWrapper">
+            <div class="videoWrapper">
+                <h2>Preview</h2>
+                <video id="videoframe_preview"autoplay loop muted>
+                    <source id="videoSource_preview" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            
+
+            <div class="videoWrapper">
+                <h2>Program</h2>
+                <video id="videoframe_program"autoplay loop muted>
+                    <source id="videoSource_program" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        
+
+        <div class="buttonWrapperWrapper">
+
+            <% for(let i = 0; i < data.length; i++) { %>
+                <div class="buttonWrapper">
+                    <h3><%= data[i].name %></h3>
+                    <video class="mini_videoframe"autoplay loop muted>
+                        <source src="/assets/videos/<%= data[i].id %>.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="button" onclick="preview(<%= data[i].id %>)">Preview</div>
+                    <div class="button" onclick="program(<%= data[i].id %>)">ManCave</div>
+                </div>
+            <% } %>
+
+        </div>
+
+        <script>
+
+            var socket = io();
+
+            
+
+            let videoFramePreview = document.getElementById('videoframe_preview')
+            let videoSourcePreview = document.getElementById('videoSource_preview')
+
+            let videoFrameProgramm = document.getElementById('videoframe_program')
+            let videoSourceProgram = document.getElementById('videoSource_program')
+
+
+            
+
+            function preview(id) {
+                videoSourcePreview.setAttribute('src', `/assets/videos/${id}.mp4`)
+                videoFramePreview.load();
+                videoFramePreview.play();
+            }
+
+            function program(id) {
+                socket.emit('signal', {id: id});
+
+                videoSourceProgram.setAttribute('src', `/assets/videos/${id}.mp4`)
+                videoFrameProgramm.load();
+                videoFrameProgramm.play();
+
+                preview(id)
+            }
+            
+          </script>
+
+
+    </body>
+
+    
+
+</html>

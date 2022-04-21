@@ -1,0 +1,69 @@
+body {
+  background-color: #151515;
+  margin: 0;
+  font-family: "Avenir";
+}
+body .videoframeWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+body .videoframeWrapper .videoWrapper {
+  width: 45%;
+  height: 35vw;
+}
+body .videoframeWrapper .videoWrapper h2 {
+  text-align: center;
+  color: white;
+}
+body .videoframeWrapper .videoWrapper #videoframe_preview {
+  width: 100%;
+}
+body .videoframeWrapper .videoWrapper #videoframe_program {
+  width: 100%;
+}
+body .buttonWrapperWrapper {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: calc(100% - 50px);
+  margin-left: 25px;
+}
+body .buttonWrapperWrapper .buttonWrapper {
+  background-color: #202020;
+  border-radius: 20px;
+  width: 200px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+}
+body .buttonWrapperWrapper .buttonWrapper h3 {
+  text-align: center;
+  color: white;
+}
+body .buttonWrapperWrapper .buttonWrapper .mini_videoframe {
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+body .buttonWrapperWrapper .buttonWrapper .button {
+  width: calc(100% - 30px);
+  margin-left: 10px;
+  background-color: #993f0b;
+  border: #993f0b solid 2px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 300ms;
+}
+body .buttonWrapperWrapper .buttonWrapper .button:hover {
+  background-color: #202020;
+  color: white;
+}
+
+h1 {
+  color: red;
+}
+
+/*# sourceMappingURL=controller.css.map */

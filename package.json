@@ -1,0 +1,27 @@
+{
+  "name": "beamerlightshowsoftware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./sass/:./assets/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EliasPeeters/beamerLightShowSoftware.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EliasPeeters/beamerLightShowSoftware/issues"
+  },
+  "homepage": "https://github.com/EliasPeeters/beamerLightShowSoftware#readme",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "http": "*",
+    "sass": "^1.50.1",
+    "socket.io": "^4.4.1"
+  }
+}
